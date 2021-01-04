@@ -65,5 +65,8 @@ EXPOSE 5432
 
 COPY 11/docker-entrypoint.sh /usr/local/bin/
 RUN ln -s /usr/local/bin/docker-entrypoint.sh / # backwards compat
+RUN ls -l /
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh
+RUN ls -l /
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
