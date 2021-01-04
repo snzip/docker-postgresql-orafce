@@ -53,8 +53,8 @@ RUN cd /tmp \
 && make install 
 
 RUN mkdir /pg_conf 
-COPY postgresql.conf /pg_conf/
-COPY pg_hba.conf /pg_conf/
+COPY 11/postgresql.conf /pg_conf/
+COPY 11/pg_hba.conf /pg_conf/
 
 RUN mkdir -p "$PGDATA" && chown -R postgres:postgres "$PGDATA" && chmod 777 "$PGDATA"
 VOLUME /var/lib/postgresql/data
@@ -63,7 +63,7 @@ VOLUME /var/lib/postgresql/data
 EXPOSE 5432
 
 
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY 11/docker-entrypoint.sh /usr/local/bin/
 RUN ln -s /usr/local/bin/docker-entrypoint.sh / # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
 
