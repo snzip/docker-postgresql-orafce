@@ -65,5 +65,5 @@ EXPOSE 5432
 
 COPY 11/docker-entrypoint.sh /usr/local/bin/
 RUN ln -s /usr/local/bin/docker-entrypoint.sh / # backwards compat
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
