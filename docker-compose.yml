@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  frontend:
+    image: snzip/pg-orafce:11
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    ports: 
+      - 5432:5432
+    restart: always
+volumes:
+  pg-data:
