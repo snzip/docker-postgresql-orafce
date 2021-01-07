@@ -31,8 +31,7 @@ RUN set -eux; \
 	mkdir -p /var/lib/postgresql; \
 	chown -R postgres:postgres /var/lib/postgresql
 #
-# #&& wget https://ftp.postgresql.org/pub/source/v11.10/postgresql-11.10.tar.gz \
-# COPY postgresql-11.10.tar.gz  /tmp/
+
 RUN cd /tmp \
 && wget https://ftp.postgresql.org/pub/source/v11.10/postgresql-11.10.tar.gz \ 
 && tar xvzf postgresql-11.10.tar.gz \
@@ -58,15 +57,13 @@ COPY 11/pg_hba.conf /pg_conf/
 
 RUN mkdir -p "$PGDATA" && chown -R postgres:postgres "$PGDATA" && chmod 777 "$PGDATA"
 VOLUME /var/lib/postgresql/data
- 
 
 EXPOSE 5432
 
-
 COPY 11/docker-entrypoint.sh /usr/local/bin/
 RUN ln -s /usr/local/bin/docker-entrypoint.sh / # backwards compat
-RUN ls -l /
+ 
 RUN chmod 777 /usr/local/bin/docker-entrypoint.sh
-RUN ls -l /
+ 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
