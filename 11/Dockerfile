@@ -38,7 +38,10 @@ RUN cd /tmp \
 && cd postgresql* \
 && ./configure --prefix=/var/lib/postgresql  \
 && make world \
-&& make install world 
+&& make install world  \
+&& cd  contrib \
+&& make \
+&& make install
 
 ENV PATH $PATH:/var/lib/postgresql/bin
 ENV PGDATA /var/lib/postgresql/data
