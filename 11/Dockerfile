@@ -33,8 +33,8 @@ RUN set -eux; \
 #
 
 RUN cd /tmp \
-&& wget https://ftp.postgresql.org/pub/source/v11.10/postgresql-11.10.tar.gz \ 
-&& tar xvzf postgresql-11.10.tar.gz \
+&& wget https://ftp.postgresql.org/pub/source/v11.10/postgresql-11.11.tar.gz \ 
+&& tar xvzf postgresql-11.11.tar.gz \
 && cd postgresql* \
 && ./configure --prefix=/var/lib/postgresql  \
 && make world \
@@ -53,6 +53,16 @@ RUN cd /tmp \
 && cd /var/lib/postgresql/share/extension/orafce-3.14.0 \
 && make \
 && make install 
+
+
+RUN cd /tmp \ 
+&&  wget  https://github.com/EnterpriseDB/pldebugger/archive/refs/tags/v1.3.tar.gz -O pldebugger-1.3.tar.gz \
+&& tar xvzf  pldebugger-1.3.tar.gz\
+&& mv /tmp/pldebugger-1.3 /var/lib/postgresql/share/extension/ \
+&& cd /var/lib/postgresql/share/extension/pldebugger-1.3 \
+&& make \
+&& make install 
+
 
 RUN mkdir /pg_conf 
 COPY 11/postgresql.conf /pg_conf/
