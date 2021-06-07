@@ -59,6 +59,8 @@ RUN cd /tmp \
 &&  wget  https://github.com/EnterpriseDB/pldebugger/archive/refs/tags/v1.3.tar.gz -O pldebugger-1.3.tar.gz \
 && cd postgresql*/contrib \
 && tar xvzf /tmp/pldebugger-1.3.tar.gz \ 
+&& mv /tmp/pldebugger-1.3 /var/lib/postgresql/share/extension/ \
+&& cd /var/lib/postgresql/share/extension/pldebugger-1.3 \
 && cd pldebugger-1.3 \
 && make \
 && make install 
