@@ -47,10 +47,10 @@ ENV PATH $PATH:/var/lib/postgresql/bin
 ENV PGDATA /var/lib/postgresql/data
  
 RUN cd /tmp \ 
-&&  wget  https://github.com/orafce/orafce/archive/3.14.0.tar.gz -O orafce-3.14.0.tar.gz \
-&& tar xvzf orafce-3.14.0.tar.gz \
-&& mv /tmp/orafce-3.14.0 /var/lib/postgresql/share/extension/ \
-&& cd /var/lib/postgresql/share/extension/orafce-3.14.0 \
+&&  wget  https://github.com/orafce/orafce/archive/3.16.0.tar.gz -O orafce-3.16.0.tar.gz \
+&& tar xvzf orafce-3.16.0.tar.gz \
+&& mv /tmp/orafce-3.16.0 /var/lib/postgresql/share/extension/ \
+&& cd /var/lib/postgresql/share/extension/orafce-3.16.0 \
 && make \
 && make install 
 
