@@ -1,12 +1,20 @@
 version: "3.3"
 services:
-  pg:
+  pg11:
     image: snzip/pg-orafce:11
     volumes:
       - pg-data:/var/lib/postgresql/data
     ports: 
       - 5432:5432
     restart: always
+    
+  # pg13:
+  #   image: snzip/pg-orafce:13
+  #   volumes:
+  #     - pg13-data:/var/lib/postgresql/data
+  #   ports: 
+  #     - 5433:5432
+  #   restart: always
   redis:
     image: "redis:alpine"
     restart: always
@@ -14,3 +22,4 @@ services:
       - 6379:6379
 volumes:
   pg-data:
+  pg13-data:
