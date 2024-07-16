@@ -20,7 +20,7 @@ export HTTPS_PROXY=http://web-proxy.jp.softwaregrp.net:8080/
 
 
 cd 14
-docker build -t snzip/pg-orafce:14  --build-arg http_proxy=http://web-proxy.jp.softwaregrp.net:8080 --build-arg https_proxy=http://web-proxy.jp.softwaregrp.net:8080  -f Dockerfile .
+docker build -t snzip/pg-orafce:14  --build-arg http_proxy=http://15.122.63.30:8080 --build-arg https_proxy=http://15.122.63.30:8080  -f Dockerfile .
 
 
 docker build -t snzip/pg-orafce:14  --build-arg http_proxy=http://172.27.96.1:7890 --build-arg https_proxy=http://172.27.96.1:7890  -f Dockerfile .
