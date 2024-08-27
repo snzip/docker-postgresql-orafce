@@ -9,7 +9,7 @@ This allows you to install Postgresql with the extension pg-orafce in Docker.
 - snzip/pg-orafce:11
 - snzip/pg-orafce:13   (3.7)
 - snzip/pg-orafce:14   (14.12)
-- snzip/pg-orafce:15   (15.7)
+- snzip/pg-orafce:15   (15.8)
 
 ## Build 
 
@@ -19,8 +19,10 @@ export HTTP_PROXY=http://web-proxy.jp.softwaregrp.net:8080/
 export HTTPS_PROXY=http://web-proxy.jp.softwaregrp.net:8080/
 
 
+docker build -t snzip/pg-orafce:13  --build-arg http_proxy=http://15.122.63.30:8080 --build-arg https_proxy=http://15.122.63.30:8080  -f Dockerfile .
+
 cd 14
-docker build -t snzip/pg-orafce:14  --build-arg http_proxy=http://15.122.63.30:8080 --build-arg https_proxy=http://15.122.63.30:8080  -f Dockerfile .
+docker build -t snzip/pg-orafce:15  --build-arg http_proxy=http://15.122.63.30:8080 --build-arg https_proxy=http://15.122.63.30:8080  -f Dockerfile .
 
 
 docker build -t snzip/pg-orafce:14  --build-arg http_proxy=http://172.27.96.1:7890 --build-arg https_proxy=http://172.27.96.1:7890  -f Dockerfile .
